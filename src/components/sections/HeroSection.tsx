@@ -44,7 +44,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-6 lg:px-8 overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient">
         <motion.div
@@ -65,15 +65,16 @@ export const HeroSection = () => {
         />
       </div>
       
-      <div className="container px-4 mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="text-left space-y-6">
+      <div className="container max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="text-left space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="space-y-6"
             >
-              <motion.div
+              <motion.span
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -81,27 +82,28 @@ export const HeroSection = () => {
                   stiffness: 100,
                   damping: 20,
                 }}
-                className="inline-block"
+                className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                  Welcome to my portfolio
-                </span>
-              </motion.div>
-              <motion.h1
-                className="text-4xl md:text-7xl font-bold tracking-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                Meet Gordon:
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 min-h-[80px]">
-                  {text}
-                </span>
-              </motion.h1>
+                Looking for Colleges
+              </motion.span>
+              
+              <div className="space-y-4">
+                <motion.h1
+                  className="text-4xl md:text-6xl lg:text-7xl font-bebas tracking-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Meet Gordon:
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 min-h-[80px] mt-2">
+                    {text}
+                  </span>
+                </motion.h1>
+              </div>
             </motion.div>
             
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl"
+              className="text-lg text-muted-foreground max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -112,7 +114,7 @@ export const HeroSection = () => {
             </motion.p>
             
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-8"
+              className="flex flex-col sm:flex-row gap-4 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -128,18 +130,40 @@ export const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Profile Image */}
+          {/* Profile Image with 3D hover effect */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
-            className="relative aspect-square rounded-full overflow-hidden border-4 border-primary/20 shadow-xl"
+            className="relative w-full max-w-2xl mx-auto lg:mx-0"
+            style={{ perspective: "1000px" }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-              alt="Gordon's Profile"
-              className="w-full h-full object-cover"
-            />
+            <motion.div
+              className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
+              whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <img
+                src="/lovable-uploads/bd79ebd9-6b93-438a-8282-c2c96bcd46f8.png"
+                alt="Gordon's Profile"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              
+              {/* Status badge */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-full text-sm flex items-center gap-2 w-fit"
+                >
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  Gordon is now studying in 11th Grade
+                </motion.div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
