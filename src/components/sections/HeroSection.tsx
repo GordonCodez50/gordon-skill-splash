@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -15,7 +15,23 @@ export const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(200);
+  const [delta, setDelta] = useState(100); // Faster initial typing speed
+
+  // Mouse position for interactive gradient
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -35,35 +51,28 @@ export const HeroSection = () => {
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setDelta(100);
+      setDelta(50); // Faster deletion speed
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setCurrentRole((prev) => (prev + 1) % roles.length);
-      setDelta(200);
+      setDelta(100); // Reset to faster typing speed
     }
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-6 lg:px-8 overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient">
-        <motion.div
-          className="absolute inset-0 opacity-50"
-          animate={{
-            background: [
-              "radial-gradient(circle at 0% 0%, #1a1f2c 0%, transparent 50%)",
-              "radial-gradient(circle at 100% 100%, #1a1f2c 0%, transparent 50%)",
-              "radial-gradient(circle at 0% 100%, #1a1f2c 0%, transparent 50%)",
-              "radial-gradient(circle at 100% 0%, #1a1f2c 0%, transparent 50%)",
-            ],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-      </div>
+      {/* Interactive gradient background */}
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-green-300/20 to-purple-300/30 animate-gradient-xy"
+        style={{
+          background: "linear-gradient(-45deg, #9b87f5, #7E69AB, #F2FCE2, #D6BCFA)",
+          backgroundSize: "400% 400%",
+          filter: "blur(100px)",
+          transform: "translate(-50%, -50%)",
+          x: springX,
+          y: springY,
+        }}
+      />
       
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -89,7 +98,7 @@ export const HeroSection = () => {
               
               <div className="space-y-4">
                 <motion.h1
-                  className="text-4xl md:text-6xl lg:text-7xl font-bebas tracking-tight"
+                  className="text-4xl md:text-6xl lg:text-7xl font-clash tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}

@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         'bebas': ['Bebas Neue', 'sans-serif'],
+        'clash': ['Clash Display', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -88,12 +89,23 @@ export default {
             transform: "translateY(0)",
           },
         },
+        "gradient-xy": {
+          "0%, 100%": {
+            "background-size": "400% 400%",
+            "background-position": "0% 0%"
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "100% 100%"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         gradient: "gradient 15s ease infinite",
         "fade-in": "fade-in 1s ease-out",
+        "gradient-xy": "gradient-xy 15s ease infinite",
       },
     },
   },
