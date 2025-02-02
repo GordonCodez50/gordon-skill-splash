@@ -19,7 +19,7 @@ export const Navbar = () => {
           <div className="w-px h-4 bg-border mx-3" />
           <div className="flex items-center gap-2">
             <img src="/lovable-uploads/2c36197a-3862-4fc3-85fb-5bfadd8ddf56.png" alt="Logo" className="w-8 h-8" />
-            <span className="font-semibold text-lg">Gordon Edacherié</span>
+            <span className="font-bebas text-2xl tracking-wide">Gordon Edacherié</span>
           </div>
         </div>
         
