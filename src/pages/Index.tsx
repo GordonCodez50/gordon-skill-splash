@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { ProjectsCarousel } from "@/components/sections/ProjectsCarousel";
 
 const Index = () => {
   return (
@@ -9,7 +9,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <SkillsSection />
-      <ProjectsSection />
+      <ProjectsCarousel />
     </main>
   );
 };

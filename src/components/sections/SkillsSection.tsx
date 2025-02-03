@@ -21,13 +21,13 @@ export const SkillsSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const baseVelocity = 2;
-  const velocity = useTransform(scrollYProgress, [0, 1], [baseVelocity, baseVelocity * 5]);
-  const [duration, setDuration] = useState(20);
+  const baseVelocity = 1; // Reduced from 2 to slow down
+  const velocity = useTransform(scrollYProgress, [0, 1], [baseVelocity, baseVelocity * 3]); // Reduced multiplier
+  const [duration, setDuration] = useState(40); // Increased base duration
 
   useEffect(() => {
     const unsubscribe = velocity.on("change", (latest) => {
-      setDuration(40 / latest);
+      setDuration(60 / latest); // Increased from 40 to 60 to slow down
     });
     return () => unsubscribe();
   }, [velocity]);
@@ -35,7 +35,7 @@ export const SkillsSection = () => {
   return (
     <motion.section 
       ref={containerRef} 
-      className="py-24 bg-background overflow-hidden"
+      className="py-12 bg-background overflow-hidden" // Reduced padding from py-24
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -43,7 +43,7 @@ export const SkillsSection = () => {
     >
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl md:text-5xl font-clash mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy"
+          className="text-3xl md:text-4xl font-clash mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -52,11 +52,11 @@ export const SkillsSection = () => {
           Skillsets
         </motion.h2>
         
-        <div className="relative flex flex-col gap-4 py-8">
+        <div className="relative flex flex-col gap-4 py-4">
           {/* First row - moving right */}
-          <div className="flex gap-8 items-center">
+          <div className="flex gap-4 items-center">
             <motion.div
-              className="flex gap-8 items-center"
+              className="flex gap-4 items-center"
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 duration: duration,
@@ -67,9 +67,9 @@ export const SkillsSection = () => {
               {[...skills, ...skills].map((skill, index) => (
                 <div
                   key={index}
-                  className="min-w-[200px] h-[100px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-6 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
+                  className="min-w-[180px] h-[80px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
                 >
-                  <span className="text-xl font-clash text-foreground whitespace-nowrap">
+                  <span className="text-lg font-clash text-foreground whitespace-nowrap">
                     {skill}
                   </span>
                 </div>
@@ -78,9 +78,9 @@ export const SkillsSection = () => {
           </div>
 
           {/* Second row - moving left */}
-          <div className="flex gap-8 items-center">
+          <div className="flex gap-4 items-center">
             <motion.div
-              className="flex gap-8 items-center"
+              className="flex gap-4 items-center"
               animate={{ x: ["-50%", "0%"] }}
               transition={{
                 duration: duration,
@@ -91,9 +91,9 @@ export const SkillsSection = () => {
               {[...skills, ...skills].map((skill, index) => (
                 <div
                   key={index}
-                  className="min-w-[200px] h-[100px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-6 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
+                  className="min-w-[180px] h-[80px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
                 >
-                  <span className="text-xl font-clash text-foreground whitespace-nowrap">
+                  <span className="text-lg font-clash text-foreground whitespace-nowrap">
                     {skill}
                   </span>
                 </div>
