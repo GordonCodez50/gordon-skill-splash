@@ -33,11 +33,24 @@ export const SkillsSection = () => {
   }, [velocity]);
 
   return (
-    <section ref={containerRef} className="py-24 bg-background overflow-hidden">
+    <motion.section 
+      ref={containerRef} 
+      className="py-24 bg-background overflow-hidden"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-clash mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-clash mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           Skillsets
-        </h2>
+        </motion.h2>
         
         <div className="relative flex flex-col gap-4 py-8">
           {/* First row - moving right */}
@@ -89,6 +102,6 @@ export const SkillsSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

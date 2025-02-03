@@ -15,7 +15,8 @@ export const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(100); // Faster initial typing speed
+  const [delta, setDelta] = useState(50); // Faster initial typing speed
+  const [isPaused, setIsPaused] = useState(false);
 
   // Mouse position for interactive gradient
   const mouseX = useMotionValue(0);
@@ -34,12 +35,14 @@ export const HeroSection = () => {
   }, [mouseX, mouseY]);
 
   useEffect(() => {
+    if (isPaused) return;
+
     let ticker = setInterval(() => {
       tick();
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, currentRole, isDeleting]);
+  }, [text, currentRole, isDeleting, isPaused]);
 
   const tick = () => {
     let fullText = roles[currentRole];
@@ -50,12 +53,16 @@ export const HeroSection = () => {
     setText(updatedText);
 
     if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(50); // Faster deletion speed
+      setIsPaused(true);
+      setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+        setDelta(30); // Even faster deletion speed
+      }, 1000); // 1 second pause when word is complete
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setCurrentRole((prev) => (prev + 1) % roles.length);
-      setDelta(100); // Reset to faster typing speed
+      setDelta(50); // Reset to faster typing speed
     }
   };
 
@@ -104,9 +111,9 @@ export const HeroSection = () => {
                   transition={{ delay: 0.2 }}
                 >
                   Meet Gordon:
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 min-h-[80px] mt-2">
+                  <div className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 h-[160px] mt-2">
                     {text}
-                  </span>
+                  </div>
                 </motion.h1>
               </div>
             </motion.div>
