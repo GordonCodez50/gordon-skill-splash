@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-// This would typically come from your CMS
 const projects = [
   {
     id: "cs50p",
@@ -75,11 +74,11 @@ export const ProjectsCarousel = () => {
         </motion.h2>
 
         <motion.div 
-          className="flex gap-6 overflow-x-hidden relative"
+          className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide"
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
           transition={{
-            duration: 20,
+            duration: 30,
             repeat: Infinity,
             ease: "linear"
           }}
@@ -88,9 +87,9 @@ export const ProjectsCarousel = () => {
             <Link
               to={`/project/${project.id}`}
               key={`${project.id}-${index}`}
-              className="min-w-[350px] transform transition-all duration-300 hover:scale-105"
+              className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105 snap-center"
             >
-              <Card className="overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
+              <Card className="h-full overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
                 <motion.img
                   src={project.image}
                   alt={project.title}
