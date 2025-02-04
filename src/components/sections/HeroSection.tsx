@@ -23,9 +23,8 @@ export const HeroSection = () => {
   // Mouse position for interactive gradient
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springConfig = { stiffness: 100, damping: 30 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -40,12 +39,12 @@ export const HeroSection = () => {
   useEffect(() => {
     if (isPaused) return;
 
-    const ticker = setInterval(() => {
+    let ticker = setInterval(() => {
       tick();
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [isPaused, delta]);
+  }, [text, currentRole, isDeleting, isPaused]);
 
   const tick = () => {
     let fullText = roles[currentRole];
