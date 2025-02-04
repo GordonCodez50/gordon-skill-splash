@@ -6,18 +6,14 @@ import { projects } from "@/data/projects";
 
 export const ProjectsCarousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isUserScrolling, setIsUserScrolling] = useState(true);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  const baseVelocity = 1; // Base speed for the animation
+  const baseVelocity = 1; // Base speed for the animation (you can increase this value for faster scroll)
   const velocity = useTransform(scrollYProgress, [0, 1], [baseVelocity, baseVelocity * 3]);
-  const [duration, setDuration] = useState(40); // Base duration for the animation
-
-  // Set up auto-scroll behavior when user is inactive
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [duration, setDuration] = useState(30); // Faster duration for the animation (was 40)
 
   useEffect(() => {
     const unsubscribe = velocity.on("change", (latest) => {
@@ -26,17 +22,7 @@ export const ProjectsCarousel = () => {
     return () => unsubscribe();
   }, [velocity]);
 
-  // Reset auto-scroll when the user is scrolling
-  const handleUserScroll = () => {
-    setIsUserScrolling(true);
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-    scrollTimeoutRef.current = setTimeout(() => {
-      setIsUserScrolling(false);
-    }, 1000); // 1 second of inactivity triggers auto-scroll
-  };
-
+  // Parallax effect for the heading
   const yHeading = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacityHeading = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
@@ -48,7 +34,6 @@ export const ProjectsCarousel = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
-      onWheel={handleUserScroll} // Detect scroll interaction
     >
       <div className="container mx-auto px-4">
         <motion.h2
@@ -64,10 +49,10 @@ export const ProjectsCarousel = () => {
 
         <div className="relative flex gap-8 items-center">
           <motion.div
-            className="flex gap-8 items-center overflow-x-auto snap-x snap-mandatory"
-            animate={{ x: isUserScrolling ? ["0%", "-50%"] : ["0%", "-100%"] }} // Adjust movement based on user scroll
+            className="flex gap-8 items-center"
+            animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: isUserScrolling ? duration : 50, // Auto-scroll faster when user stops scrolling
+              duration: duration, // Adjusted for faster animation
               ease: "linear",
               repeat: Infinity,
             }}
@@ -76,7 +61,7 @@ export const ProjectsCarousel = () => {
               <Link
                 to={`/project/${project.id}`}
                 key={project.id}
-                className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105 snap-start"
+                className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105"
               >
                 <Card className="h-full overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
                   <motion.img
