@@ -23,8 +23,9 @@ export const HeroSection = () => {
   // Mouse position for interactive gradient
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
-  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+  const springConfig = { stiffness: 100, damping: 30 };
+  const springX = useSpring(mouseX, springConfig);
+  const springY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -39,12 +40,12 @@ export const HeroSection = () => {
   useEffect(() => {
     if (isPaused) return;
 
-    let ticker = setInterval(() => {
+    const ticker = setInterval(() => {
       tick();
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, currentRole, isDeleting, isPaused]);
+  }, [isPaused, delta]);
 
   const tick = () => {
     let fullText = roles[currentRole];
@@ -72,9 +73,9 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-6 lg:px-8 overflow-hidden">
       {/* Interactive gradient background */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-green-300/20 to-purple-300/30 animate-gradient-xy"
+        className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/20 to-white/30 animate-gradient-xy"
         style={{
-          background: "linear-gradient(-45deg, #9b87f5, #7E69AB, #F2FCE2, #D6BCFA)",
+          background: "linear-gradient(-45deg, #F0F8FF, #F7FAF7, #FFF0F5, #E6E6FA)",  // Lighter pastel gradient
           backgroundSize: "400% 400%",
           filter: "blur(100px)",
           transform: "translate(-50%, -50%)",
@@ -170,7 +171,7 @@ export const HeroSection = () => {
                 className="w-full h-full object-cover object-center"
               />
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
               
               {/* Status badge */}
               <div className="absolute bottom-4 left-4 right-4">
