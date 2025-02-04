@@ -8,7 +8,9 @@ const roles = [
   "High School Grad",
   "All Around Techy",
   "Cyber Analyst",
-  "Video Editor"
+  "Video Editor",
+  "A Web Designer",
+  "Digital Creator"
 ];
 
 export const HeroSection = () => {
