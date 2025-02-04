@@ -75,7 +75,7 @@ export const HeroSection = () => {
       <motion.div 
         className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-green-300/20 to-purple-300/30 animate-gradient-xy"
         style={{
-          background: "linear-gradient(-45deg, #9b87f5, #7E69AB, #F2FCE2, #D6BCFA)",
+          background: "linear-gradient(-45deg, rgba(155, 135, 245, 0.2), rgba(126, 105, 171, 0.2), rgba(242, 252, 226, 0.2), rgba(214, 188, 250, 0.2))",
           backgroundSize: "400% 400%",
           filter: "blur(100px)",
           transform: "translate(-50%, -50%)",
@@ -83,6 +83,7 @@ export const HeroSection = () => {
           y: springY,
         }}
       />
+
       
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
