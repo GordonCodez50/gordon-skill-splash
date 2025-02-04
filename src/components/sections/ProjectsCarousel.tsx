@@ -73,22 +73,22 @@ export const ProjectsCarousel = () => {
           Featured Projects
         </motion.h2>
 
-        <div className="overflow-visible">
+        <div className="overflow-hidden">
           <motion.div 
             className="flex gap-8 pb-8"
-            initial={{ x: "0%" }}
+            initial={{ x: 0 }}
             animate={{ x: "-100%" }}
             transition={{
-              duration: 30,
+              duration: 45,
               repeat: Infinity,
               ease: "linear",
               repeatType: "loop"
             }}
           >
-            {[...projects, ...projects].map((project, index) => (
+            {projects.map((project) => (
               <Link
                 to={`/project/${project.id}`}
-                key={`${project.id}-${index}`}
+                key={project.id}
                 className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105"
               >
                 <Card className="h-full overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
