@@ -78,7 +78,7 @@ export const TestimonialsSection = () => {
                 {testimonial.isTeacher && testimonial.recommendationLetter && (
                   <motion.button
                     onClick={() => setSelectedLetter(testimonial.recommendationLetter)}
-                    className="mt-4 inline-block text-sm px-4 py-2 bg-gradient-to-r from-purple-600 to-green-400 text-white rounded-md hover:opacity-80 transition-opacity"
+                    className="mt-4 inline-block text-sm px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors"
                     whileHover={{ scale: 1.05 }}
                   >
                     View Recommendation Letter
