@@ -1,74 +1,73 @@
-import { useState } from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Slider from "react-slick"; // Importing slick carousel
-
-const projects = [
-  {
-    title: "Project 1",
-    description: "A brief description of project 1",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-  },
-  {
-    title: "Project 2",
-    description: "A brief description of project 2",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-  },
-  {
-    title: "Project 3",
-    description: "A brief description of project 3",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
-  }
-];
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import { projects } from "@/data/projects";
 
 export const ProjectsCarousel = () => {
-  const [sliderRef, setSliderRef] = useState<any>(null); // Creating a ref for the slider
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <ArrowRight className="h-6 w-6 text-muted-foreground" />, // Optional custom arrows
-    prevArrow: <ArrowRight className="h-6 w-6 text-muted-foreground transform rotate-180" />,
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
   return (
-    <section className="py-20">
-      <div className="container px-4 mx-auto">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-bold">Featured Projects</h2>
-          <Button variant="ghost" className="group" onClick={() => sliderRef?.slickNext()}>
-            View All
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-
-        {/* Adding the slider */}
-        <Slider {...settings}>
-          {projects.map((project) => (
-            <div key={project.title} className="group overflow-hidden">
-              <Card className="group overflow-hidden">
-                <CardHeader className="p-0">
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+    <motion.section ref={containerRef} className="py-20 relative" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <motion.div className="container mx-auto px-4" style={{ y, opacity }}>
+        <motion.h2 className="text-4xl md:text-5xl font-clash text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy">
+          Featured Projects
+        </motion.h2>
+        <div className="overflow-hidden">
+          <motion.div className="flex gap-8 pb-8"
+            initial={{ x: 0 }}
+            animate={{ x: `-${100 * projects.length}%` }}
+            transition={{
+              duration: projects.length * 15,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop"
+            }}
+          >
+            {/* Original projects */}
+            {projects.map((project) => (
+              <Link to={`/project/${project.id}`} key={project.id} className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105">
+                <Card className="h-full overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
+                  <motion.img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-clash mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground mb-4">{project.description}</p>
+                    <div className="flex gap-2 flex-wrap">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 text-primary text-sm">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground">{project.description}</p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </Slider>
-      </div>
-    </section>
+                </Card>
+              </Link>
+            ))}
+            {/* Duplicate projects for smooth infinite scroll */}
+            {projects.map((project) => (
+              <Link to={`/project/${project.id}`} key={`${project.id}-duplicate`} className="min-w-[350px] flex-shrink-0 transform transition-all duration-300 hover:scale-105">
+                <Card className="h-full overflow-hidden bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm border border-purple-500/20">
+                  <motion.img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-clash mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground mb-4">{project.description}</p>
+                    <div className="flex gap-2 flex-wrap">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 text-primary text-sm">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.section>
   );
 };
