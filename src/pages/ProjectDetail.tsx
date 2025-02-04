@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -21,6 +20,14 @@ const ProjectDetail = () => {
       </div>
     );
   }
+
+  const sections = [
+    { title: "Week Breakdown", content: project.content.weekBreakdown },
+    { title: "Testing & Debugging", content: project.content.testingAndDebugging },
+    { title: "Final Project", content: project.content.finalProject },
+    { title: "Gains", content: project.content.gains },
+    { title: "Final Thoughts", content: project.content.finalThoughts }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,35 +105,35 @@ const ProjectDetail = () => {
             <p>{project.content.introduction}</p>
           </div>
 
+          {/* Dynamically Render Content Sections */}
           <div className="space-y-12">
-            {[
-              { title: "Week Breakdown", content: project.content.weekBreakdown },
-              { title: "Testing & Debugging", content: project.content.testingAndDebugging },
-              { title: "Final Project", content: project.content.finalProject },
-              { title: "Gains", content: project.content.gains },
-              { title: "Final Thoughts", content: project.content.finalThoughts }
-            ].map((section, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="relative">
-                  <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-xl bg-gradient-to-r from-purple-500/10 via-green-400/5 to-purple-500/10 opacity-0 transition group-hover:opacity-100 sm:block" />
-                  <div className="relative">
-                    <h3 className="text-2xl font-clash mb-4 inline-flex items-center">
-                      {section.title}
-                      <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {sections.map((section, index) => {
+              if (section.content) {
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    <div className="relative">
+                      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-xl bg-gradient-to-r from-purple-500/10 via-green-400/5 to-purple-500/10 opacity-0 transition group-hover:opacity-100 sm:block" />
+                      <div className="relative">
+                        <h3 className="text-2xl font-clash mb-4 inline-flex items-center">
+                          {section.title}
+                          <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {section.content}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              }
+              return null;
+            })}
           </div>
         </div>
       </div>
