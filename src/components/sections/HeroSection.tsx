@@ -113,7 +113,7 @@ export const HeroSection = () => {
                   Meet Gordon:
                   <div 
                     className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 mt-1"
-                    style={{ minHeight: "3em" }} // Adjust height if needed
+                    style={{ minHeight: "2.6em" }} // Adjust height if needed
                   >
                     {text}
                   </div>
