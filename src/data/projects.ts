@@ -1,3 +1,4 @@
+
 import { Project } from "@/types/project";
 
 export const projects: Project[] = [
@@ -9,8 +10,7 @@ export const projects: Project[] = [
     tags: ["Education", "Python", "Computer Science"],
     company: "Harvard University",
     location: "Cambridge, Massachusetts, United States",
-    founded: "1636",
-    companySize: "100000-1000000",
+    online: true,
     completion: "75%",
     proficiency: "84%",
     content: {
@@ -35,8 +35,7 @@ export const projects: Project[] = [
     tags: ["Mobile", "React Native"],
     company: "Company Two",
     location: "Location Two",
-    founded: "2020",
-    companySize: "10-50",
+    online: false,
     completion: "90%",
     proficiency: "92%",
     content: {
@@ -61,8 +60,7 @@ export const projects: Project[] = [
     tags: ["AI", "Python", "TensorFlow"],
     company: "Company Three",
     location: "Location Three",
-    founded: "2019",
-    companySize: "50-200",
+    online: true,
     completion: "85%",
     proficiency: "88%",
     content: {

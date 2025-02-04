@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -6,8 +7,7 @@ export interface Project {
   tags: string[];
   company: string;
   location: string;
-  founded: string;
-  companySize: string;
+  online: boolean;
   completion: string;
   proficiency: string;
   content: {
