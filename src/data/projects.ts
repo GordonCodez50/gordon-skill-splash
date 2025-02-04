@@ -17,8 +17,6 @@ export const projects: Project[] = [
       introduction: "As a computer science enthusiast, I'm always on the lookout for opportunities to sharpen my skills. When I discovered CS50P (Introduction to Programming with Python), a highly regarded course from Harvard University, I knew it would be the perfect next step in my learning journey.",
       weekBreakdown: "The course begins with simple projects that introduce the basic syntax and functionality of Python, like creating a tip calculator or interpreting file extensions. While Week 0 eased me in, it wasn't long before the challenges escalated.",
       testingAndDebugging: "By Week 5, I was introduced to testing, an aspect of programming that's often overlooked by beginners. I built a program that required testing different conditions and validating responses.",
-      finalProject: "For my final project, I created a comprehensive school management program with a graphical user interface (GUI).",
-      gains: "Completing CS50P has been an invaluable part of my programming journey.",
       finalThoughts: "CS50P was a challenging yet rewarding experience that reaffirmed my passion for technology and problem-solving.",
       process: {
         research: "Throughout the CS50P course, research and analysis were integral to my learning journey.",
