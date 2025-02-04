@@ -21,21 +21,25 @@ export const SkillsSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const baseVelocity = 1; // Reduced from 2 to slow down
-  const velocity = useTransform(scrollYProgress, [0, 1], [baseVelocity, baseVelocity * 3]); // Reduced multiplier
-  const [duration, setDuration] = useState(40); // Increased base duration
+  const baseVelocity = 1; // Base speed for the animation
+  const velocity = useTransform(scrollYProgress, [0, 1], [baseVelocity, baseVelocity * 3]);
+  const [duration, setDuration] = useState(40); // Base duration for the animation
 
   useEffect(() => {
     const unsubscribe = velocity.on("change", (latest) => {
-      setDuration(60 / latest); // Increased from 40 to 60 to slow down
+      setDuration(60 / latest); // Adjust duration based on scroll velocity
     });
     return () => unsubscribe();
   }, [velocity]);
 
+  // Parallax effect for the heading
+  const yHeading = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacityHeading = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+
   return (
     <motion.section 
       ref={containerRef} 
-      className="py-12 bg-background overflow-hidden" // Reduced padding from py-24
+      className="py-24 bg-background overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -43,7 +47,8 @@ export const SkillsSection = () => {
     >
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-3xl md:text-4xl font-clash mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy"
+          className="text-3xl md:text-4xl font-clash mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-green-400 to-purple-600 animate-gradient-xy"
+          style={{ y: yHeading, opacity: opacityHeading }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -52,7 +57,7 @@ export const SkillsSection = () => {
           Skillsets
         </motion.h2>
         
-        <div className="relative flex flex-col gap-4 py-4">
+        <div className="relative flex flex-col gap-8 py-4">
           {/* First row - moving right */}
           <div className="flex gap-4 items-center">
             <motion.div
@@ -65,14 +70,15 @@ export const SkillsSection = () => {
               }}
             >
               {[...skills, ...skills].map((skill, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="min-w-[180px] h-[80px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
+                  whileHover={{ scale: 1.05 }}
                 >
                   <span className="text-lg font-clash text-foreground whitespace-nowrap">
                     {skill}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -89,14 +95,15 @@ export const SkillsSection = () => {
               }}
             >
               {[...skills, ...skills].map((skill, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="min-w-[180px] h-[80px] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 border border-purple-500/20"
+                  whileHover={{ scale: 1.05 }}
                 >
                   <span className="text-lg font-clash text-foreground whitespace-nowrap">
                     {skill}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
