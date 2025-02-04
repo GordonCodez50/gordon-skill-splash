@@ -1,7 +1,9 @@
+
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ProjectsCarousel } from "@/components/sections/ProjectsCarousel";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 const Index = () => {
   return (
@@ -10,6 +12,7 @@ const Index = () => {
       <HeroSection />
       <SkillsSection />
       <ProjectsCarousel />
+      <TestimonialsSection />
     </main>
   );
 };
