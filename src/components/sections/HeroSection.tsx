@@ -111,7 +111,9 @@ export const HeroSection = () => {
                   transition={{ delay: 0.2 }}
                 >
                   Meet Gordon:
-                  <div className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 leading-[1.1] mt-1">
+                  <div 
+                    className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 leading-[1.1] mt-1 min-h-[50px] flex items-center"
+                  >
                     {text}
                   </div>
                 </motion.h1>
