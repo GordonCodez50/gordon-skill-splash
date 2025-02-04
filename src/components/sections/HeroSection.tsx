@@ -105,13 +105,13 @@ export const HeroSection = () => {
               
               <div className="space-y-4">
                 <motion.h1
-                  className="text-4xl md:text-6xl lg:text-7xl font-clash tracking-tight leading-snug"
+                  className="text-4xl md:text-6xl lg:text-7xl font-clash tracking-tight leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
                   Meet Gordon:
-                  <div className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 min-h-[160px] mt-4 leading-tight mt-1">
+                  <div className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 leading-[1.1] mt-1">
                     {text}
                   </div>
                 </motion.h1>
