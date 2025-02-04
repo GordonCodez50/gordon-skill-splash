@@ -24,6 +24,10 @@ export const Navbar = () => {
     setIsHovering(false);
   };
 
+  const handleButtonClick = () => {
+    window.location.reload(); // Refresh the page
+  };
+
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -20 }}
@@ -43,9 +47,18 @@ export const Navbar = () => {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors" />
-                <div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 transition-colors" />
+                <div
+                  onClick={handleButtonClick}
+                  className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors cursor-pointer"
+                />
+                <div
+                  onClick={handleButtonClick}
+                  className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors cursor-pointer"
+                />
+                <div
+                  onClick={handleButtonClick}
+                  className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 transition-colors cursor-pointer"
+                />
               </motion.div>
             )}
           </AnimatePresence>
