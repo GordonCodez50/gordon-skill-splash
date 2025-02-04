@@ -75,7 +75,7 @@ export const HeroSection = () => {
       <motion.div 
         className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-green-300/20 to-purple-300/30 animate-gradient-xy"
         style={{
-          background: "linear-gradient(-45deg, rgba(155, 135, 245, 0.2), rgba(126, 105, 171, 0.2), rgba(242, 252, 226, 0.2), rgba(214, 188, 250, 0.2))",
+          background: "linear-gradient(-45deg, rgba(155, 135, 245, 0.4), rgba(126, 105, 171, 0.4), rgba(242, 252, 226, 0.4), rgba(214, 188, 250, 0.4))",
           backgroundSize: "400% 400%",
           filter: "blur(100px)",
           transform: "translate(-50%, -50%)",
