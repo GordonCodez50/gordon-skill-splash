@@ -11,6 +11,7 @@ export const projects: Project[] = [
     company: "Harvard University",
     location: "Cambridge, Massachusetts, United States",
     online: true,
+    projectLink: "https://cs50.harvard.edu/python/2022/",
     content: {
       introduction: "As a computer science enthusiast, I'm always on the lookout for opportunities to sharpen my skills. When I discovered CS50P (Introduction to Programming with Python), a highly regarded course from Harvard University, I knew it would be the perfect next step in my learning journey.",
       weekBreakdown: "The course begins with simple projects that introduce the basic syntax and functionality of Python, like creating a tip calculator or interpreting file extensions. While Week 0 eased me in, it wasn't long before the challenges escalated.",

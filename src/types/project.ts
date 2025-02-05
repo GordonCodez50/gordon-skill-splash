@@ -8,6 +8,7 @@ export interface Project {
   company: string;
   location: string;
   online: boolean;
+  projectLink?: string; // Optional project link
   content: {
     introduction?: string;
     weekBreakdown?: string;

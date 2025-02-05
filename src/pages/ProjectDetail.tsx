@@ -2,8 +2,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, ChevronRight } from 'lucide-react';
+import { ArrowLeft, MapPin, ChevronRight, ExternalLink } from 'lucide-react';
 import { projects } from '@/data/projects';
+import { Navbar } from '@/components/Navbar';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -14,8 +15,8 @@ const ProjectDetail = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-clash mb-4">Project not found</h1>
-          <Link to="/" className="text-primary hover:underline">
-            Go back home
+          <Link to="/projects" className="text-primary hover:underline">
+            Go back to projects
           </Link>
         </div>
       </div>
@@ -32,13 +33,14 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       {/* Hero Section */}
       <div className="relative h-[70vh] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10">
         <div className="absolute inset-0 bg-grid-white/[0.02]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
         <div className="container mx-auto px-4 h-full flex items-end pb-20 relative">
           <div className="max-w-4xl">
-            <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
+            <Link to="/projects" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </Link>
@@ -57,6 +59,21 @@ const ProjectDetail = () => {
             >
               {project.description}
             </motion.p>
+            
+            {project.projectLink && (
+              <motion.a
+                href={project.projectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center mt-6 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Visit Project
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </motion.a>
+            )}
           </div>
         </div>
       </div>
