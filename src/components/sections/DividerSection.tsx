@@ -8,11 +8,12 @@ export const DividerSection = () => {
         {/* First Motion Div (Scrolling text from left to right) */}
         <motion.div
           className="whitespace-nowrap flex gap-8"
+          initial={{ x: "100%" }} // Start off-screen to the right
           animate={{
-            x: [-1000, 0], // Move from left to right
+            x: ["100%", "-100%"], // Scroll from right to left
           }}
           transition={{
-            duration: 20,
+            duration: 60, // Scroll across in 1 minute
             repeat: Infinity,
             ease: "linear",
           }}
@@ -34,11 +35,12 @@ export const DividerSection = () => {
         {/* Second Motion Div (Duplicate for seamless loop) */}
         <motion.div
           className="whitespace-nowrap flex gap-8 absolute left-full"
+          initial={{ x: "100%" }} // Start off-screen to the right
           animate={{
-            x: [1000, 0], // Move from right to left
+            x: ["100%", "-100%"], // Scroll from right to left
           }}
           transition={{
-            duration: 20,
+            duration: 60, // Scroll across in 1 minute
             repeat: Infinity,
             ease: "linear",
           }}
