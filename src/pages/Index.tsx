@@ -5,6 +5,7 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ProjectsCarousel } from "@/components/sections/ProjectsCarousel";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { DividerSection } from "@/components/sections/DividerSection";
+import { QuestionsSection } from "@/components/sections/QuestionsSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <SkillsSection />
       <ProjectsCarousel />
       <TestimonialsSection />
+      <QuestionsSection />
     </main>
   );
 };
