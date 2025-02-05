@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const [showButtons, setShowButtons] = useState(true);
@@ -25,7 +27,7 @@ export const Navbar = () => {
   };
 
   const handleButtonClick = () => {
-    window.location.reload(); // Refresh the page
+    window.location.reload();
   };
 
   return (
@@ -63,15 +65,15 @@ export const Navbar = () => {
             )}
           </AnimatePresence>
           <div className="w-px h-4 bg-border mx-3" />
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src="/lovable-uploads/2c36197a-3862-4fc3-85fb-5bfadd8ddf56.png" alt="Logo" className="w-8 h-8" />
             <span className="font-bebas text-2xl tracking-wide">Gordon Edacherié</span>
-          </div>
+          </Link>
         </div>
         
         <div className="hidden md:flex items-center gap-6">
-          <a href="#about" className="text-sm hover:text-primary transition-colors">About</a>
-          <a href="#projects" className="text-sm hover:text-primary transition-colors">Projects</a>
+          <Link to="/" className="text-sm hover:text-primary transition-colors">Home</Link>
+          <Link to="/projects" className="text-sm hover:text-primary transition-colors">Projects</Link>
           <a href="#contact" className="text-sm hover:text-primary transition-colors">Contact</a>
         </div>
       </div>

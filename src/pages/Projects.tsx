@@ -7,6 +7,28 @@ import { ExternalLink } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 
 const Projects = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.43, 0.13, 0.23, 0.96]
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -20,14 +42,16 @@ const Projects = () => {
           Some Of My Past Projects
         </motion.h1>
         
-        <div className="mt-16 space-y-16">
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="mt-16 space-y-16"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              variants={item}
               className="group"
             >
               <div className="relative bg-gradient-to-br from-purple-500/10 via-green-400/5 to-purple-500/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/10">
@@ -63,19 +87,33 @@ const Projects = () => {
                           →
                         </motion.span>
                       </Link>
+                      {project.projectLink && (
+                        <a
+                          href={project.projectLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-sm hover:text-primary transition-colors"
+                        >
+                          Visit Project
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
                   
                   <div className="relative">
                     <motion.div
                       whileHover={{ scale: 1.05, rotateY: 10 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden rounded-xl aspect-video"
+                      transition={{ 
+                        duration: 0.4,
+                        ease: "easeOut"
+                      }}
+                      className="overflow-hidden rounded-xl aspect-video perspective-1000"
                     >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
                       />
                     </motion.div>
                   </div>
@@ -83,7 +121,7 @@ const Projects = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
