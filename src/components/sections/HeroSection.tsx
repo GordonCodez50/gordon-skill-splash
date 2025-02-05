@@ -1,8 +1,8 @@
-
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link"; // Import Link component for navigation
 
 const roles = [
   "A Computer Enthusiast",
@@ -84,7 +84,6 @@ export const HeroSection = () => {
         }}
       />
 
-      
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-left space-y-8">
@@ -142,8 +141,11 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
+              {/* View My Work Button with Link */}
               <Button size="lg" className="group">
-                View My Work
+                <Link href="/projects"> {/* Add the link here */}
+                  View My Work
+                </Link>
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="group">
