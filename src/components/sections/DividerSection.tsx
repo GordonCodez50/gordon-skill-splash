@@ -4,14 +4,13 @@ import { dividerContent } from "@/data/divider";
 export const DividerSection = () => {
   return (
     <div className="w-full bg-gradient-to-r from-purple-500/5 via-green-400/5 to-purple-500/5 py-6 overflow-hidden">
-      <div className="relative flex items-center">
-        {/* Scrolling Text - Looping Effect */}
+      <div className="relative flex items-center whitespace-nowrap">
         {[0, 1].map((loopIndex) => (
           <motion.div
             key={loopIndex}
-            className="whitespace-nowrap flex gap-12 absolute"
-            style={{ left: loopIndex === 1 ? "100%" : "0%" }}
-            animate={{ x: ["0%", "-100%"] }}
+            className="flex gap-12"
+            style={{ position: "absolute", whiteSpace: "nowrap" }}
+            animate={{ x: ["-100%", "0%"] }} // Left to right animation
             transition={{
               duration: 20,
               repeat: Infinity,
