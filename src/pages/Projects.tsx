@@ -87,17 +87,6 @@ const Projects = () => {
                           →
                         </motion.span>
                       </Link>
-                      {project.projectLink && (
-                        <a
-                          href={project.projectLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-sm hover:text-primary transition-colors"
-                        >
-                          Visit Project
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
                     </div>
                   </div>
                   
