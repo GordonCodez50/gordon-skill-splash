@@ -11,8 +11,6 @@ export const projects: Project[] = [
     company: "Harvard University",
     location: "Cambridge, Massachusetts, United States",
     online: true,
-    completion: "75%",
-    proficiency: "84%",
     content: {
       introduction: "As a computer science enthusiast, I'm always on the lookout for opportunities to sharpen my skills. When I discovered CS50P (Introduction to Programming with Python), a highly regarded course from Harvard University, I knew it would be the perfect next step in my learning journey.",
       weekBreakdown: "The course begins with simple projects that introduce the basic syntax and functionality of Python, like creating a tip calculator or interpreting file extensions. While Week 0 eased me in, it wasn't long before the challenges escalated.",
@@ -36,8 +34,6 @@ export const projects: Project[] = [
     company: "Company Two",
     location: "Location Two",
     online: false,
-    completion: "90%",
-    proficiency: "92%",
     content: {
       introduction: "Introduction to project two",
       weekBreakdown: "Weekly progress of project two",
@@ -61,8 +57,6 @@ export const projects: Project[] = [
     company: "Company Three",
     location: "Location Three",
     online: true,
-    completion: "85%",
-    proficiency: "88%",
     content: {
       introduction: "Introduction to project three",
       weekBreakdown: "Weekly progress of project three",
