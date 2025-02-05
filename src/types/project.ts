@@ -8,19 +8,17 @@ export interface Project {
   company: string;
   location: string;
   online: boolean;
-  completion: string;
-  proficiency: string;
   content: {
-    introduction: string;
-    weekBreakdown: string;
-    testingAndDebugging: string;
-    finalProject: string;
-    gains: string;
-    finalThoughts: string;
-    process: {
-      research: string;
-      information: string;
-      gains: string;
+    introduction?: string;
+    weekBreakdown?: string;
+    testingAndDebugging?: string;
+    finalProject?: string;
+    gains?: string;
+    finalThoughts?: string;
+    process?: {
+      research?: string;
+      information?: string;
+      gains?: string;
     };
   };
 }
