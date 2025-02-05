@@ -17,6 +17,8 @@ export const projects: Project[] = [
       introduction: "As a computer science enthusiast, I'm always on the lookout for opportunities to sharpen my skills. When I discovered CS50P (Introduction to Programming with Python), a highly regarded course from Harvard University, I knew it would be the perfect next step in my learning journey.",
       weekBreakdown: "The course begins with simple projects that introduce the basic syntax and functionality of Python, like creating a tip calculator or interpreting file extensions. While Week 0 eased me in, it wasn't long before the challenges escalated.",
       testingAndDebugging: "By Week 5, I was introduced to testing, an aspect of programming that's often overlooked by beginners. I built a program that required testing different conditions and validating responses.",
+      finalProject: "For my final project, I developed a comprehensive Python application that demonstrated the culmination of all concepts learned throughout the course.",
+      gains: "Through this course, I gained proficiency in Python programming, problem-solving skills, and a deep understanding of computer science fundamentals.",
       finalThoughts: "CS50P was a challenging yet rewarding experience that reaffirmed my passion for technology and problem-solving.",
       process: {
         research: "Throughout the CS50P course, research and analysis were integral to my learning journey.",
@@ -40,8 +42,8 @@ export const projects: Project[] = [
       introduction: "Introduction to project two",
       weekBreakdown: "Weekly progress of project two",
       testingAndDebugging: "Testing process for project two",
-      finalProject: "Final implementation of project two",
-      gains: "What was learned from project two",
+      finalProject: "Final implementation details of project two",
+      gains: "Enhanced mobile development skills and React Native expertise",
       finalThoughts: "Concluding thoughts on project two",
       process: {
         research: "Research phase of project two",
@@ -65,8 +67,8 @@ export const projects: Project[] = [
       introduction: "Introduction to project three",
       weekBreakdown: "Weekly progress of project three",
       testingAndDebugging: "Testing process for project three",
-      finalProject: "Final implementation of project three",
-      gains: "What was learned from project three",
+      finalProject: "Final implementation details of project three",
+      gains: "Advanced AI and machine learning competencies",
       finalThoughts: "Concluding thoughts on project three",
       process: {
         research: "Research phase of project three",
