@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export const QuestionsSection = () => {
   return (
-    <section className="w-full py-20 bg-background">
+    <section className="w-full py-20 bg-white">
       <div className="container max-w-4xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -27,19 +27,19 @@ export const QuestionsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white dark:bg-black/20 rounded-lg border border-purple-100 dark:border-purple-900 shadow-lg p-6"
+          className="glass-box"
         >
           <Accordion type="single" collapsible className="space-y-4">
             {questions.map((q) => (
               <AccordionItem
                 key={q.id}
                 value={q.id}
-                className="border border-purple-100/50 dark:border-purple-900/50 rounded-lg bg-gradient-to-r hover:from-purple-50 hover:to-green-50 dark:hover:from-purple-900/10 dark:hover:to-green-900/10 transition-all duration-300"
+                className="border border-purple-100 rounded-lg bg-white hover:bg-purple-50/50 transition-all duration-300"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-medium hover:text-purple-600 dark:hover:text-purple-400">
+                <AccordionTrigger className="px-6 py-4 text-left font-medium hover:text-purple-600">
                   {q.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 py-4 bg-white rounded-lg shadow-lg border border-gray-100 text-gray-600 dark:bg-black dark:border-gray-800">
+                <AccordionContent className="px-6 py-4 bg-white rounded-lg shadow-sm border border-purple-50 text-gray-600">
                   {q.answer}
                 </AccordionContent>
               </AccordionItem>
