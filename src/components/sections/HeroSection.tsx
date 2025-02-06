@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useState } from "react";
-import Link from "next/link"; // Import Link component for navigation
+import { Link } from "react-router-dom"; // Import Link from react-router-dom instead
 
 const roles = [
   "A Computer Enthusiast",
@@ -116,7 +116,7 @@ export const HeroSection = () => {
                   Meet Gordon:
                   <div 
                     className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 mt-1"
-                    style={{ minHeight: "2.6em" }} // Adjust height if needed
+                    style={{ minHeight: "2.6em" }}
                   >
                     {text}
                   </div>
@@ -141,12 +141,11 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              {/* View My Work Button with Link */}
               <Button size="lg" className="group">
-                <Link href="/projects"> {/* Add the link here */}
+                <Link to="/projects" className="flex items-center"> {/* Changed href to to and wrapped content */}
                   View My Work
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="group">
                 Download Resume
