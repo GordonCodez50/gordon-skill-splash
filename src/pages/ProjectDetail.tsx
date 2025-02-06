@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -33,21 +32,28 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="relative h-[40vh] bg-gradient-to-b from-purple-50 to-white">
+        <img
+          src={project.headerImage || "/placeholder.svg"}
+          alt={project.title}
+          className="w-full h-full object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/90" />
+      </div>
       <Navbar />
       {/* Hero Section */}
-      <div className="relative h-[70vh] bg-gradient-to-br from-purple-500/10 via-green-400/10 to-purple-500/10">
+      <div className="relative bg-gradient-to-br from-purple-50/50 via-white to-green-50/50">
         <div className="absolute inset-0 bg-grid-white/[0.02]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-        <div className="container mx-auto px-4 h-full flex items-end pb-20 relative">
+        <div className="container mx-auto px-4 py-20 relative">
           <div className="max-w-4xl">
-            <Link to="/projects" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
+            <Link to="/projects" className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </Link>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-clash mb-4"
+              className="text-4xl md:text-6xl font-clash mb-4 text-gray-900"
             >
               {project.title}
             </motion.h1>
@@ -55,7 +61,7 @@ const ProjectDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-muted-foreground"
+              className="text-xl text-gray-600"
             >
               {project.description}
             </motion.p>
@@ -68,7 +74,7 @@ const ProjectDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center mt-6 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center mt-6 px-4 py-2 rounded-lg bg-white text-gray-900 hover:bg-gray-50 border border-gray-200 transition-colors"
               >
                 Visit Project
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -79,7 +85,7 @@ const ProjectDetail = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-20 bg-white">
         <div className="max-w-4xl mx-auto">
           {/* Quick Facts */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
