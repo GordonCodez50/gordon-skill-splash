@@ -190,9 +190,9 @@ const Contact = () => {
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-purple-200 to-green-200 rounded-lg blur-lg opacity-0 group-hover:opacity-75 transition-opacity" />
                       <div className="relative flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors">
-                          {link.icon}
-                        </div>
+                        {link.icon && (
+                          <link.icon className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                        )}
                       </div>
                     </motion.a>
                   ))}
