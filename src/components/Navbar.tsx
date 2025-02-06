@@ -74,9 +74,10 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-sm hover:text-primary transition-colors">Home</Link>
           <Link to="/projects" className="text-sm hover:text-primary transition-colors">Projects</Link>
-          <a href="#contact" className="text-sm hover:text-primary transition-colors">Contact</a>
+          <Link to="/contact" className="text-sm hover:text-primary transition-colors">Contact</Link>
         </div>
       </div>
     </motion.nav>
   );
 };
+
