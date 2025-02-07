@@ -27,28 +27,28 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "project-two",
-    title: "Project Two",
-    description: "Description of project two",
-    image: "/placeholder.svg",
-    tags: ["Mobile", "React Native"],
-    company: "Company Two",
-    location: "Location Two",
-    online: false,
-    content: {
-      introduction: "Introduction to project two",
-      weekBreakdown: "Weekly progress of project two",
-      testingAndDebugging: "Testing process for project two",
-      finalProject: "Final implementation details of project two",
-      gains: "Enhanced mobile development skills and React Native expertise",
-      finalThoughts: "Concluding thoughts on project two",
-      process: {
-        research: "Research phase of project two",
-        information: "Key information about project two",
-        gains: "Skills gained from project two"
-      }
+  "id": "TFSaas",
+  "title": "TaskFlow",
+  "description": "An intuitive and powerful task management dashboard designed to help users organize tasks, manage time effectively, and achieve their goals with ease.",
+  "image": "/placeholder.svg",
+  "tags": ["Mobile", "React Native"],
+  "company": "Company Two",
+  "location": "Location Two",
+  "online": false,
+  "content": {
+    "introduction": "As a passionate learner in the realm of technology, I’m always searching for opportunities to explore and expand my skills. TaskFlow, my latest project, is more than just an app—it’s a reflection of my journey in combining design, functionality, and user experience. From conceptualization to implementation, this project challenged me to push boundaries, integrate advanced tools, and create something impactful.",
+    "weekBreakdown": "The initial weeks were focused on setting up the core infrastructure and designing an intuitive user interface. A clean, modern design with a dark theme was prioritized to maintain user focus. As the project evolved, I added robust task management, a dynamic Pomodoro timer, music integration, and analytics features to enhance productivity. Iterative testing and feedback ensured a seamless user experience.",
+    "testingAndDebugging": "During testing, I focused on ensuring smooth API integrations, optimizing performance, and refining the user interface. The Pomodoro timer and notification system were tested rigorously for accuracy and reliability. Cross-device compatibility was also a priority, ensuring that the app worked flawlessly across various screen sizes and operating systems.",
+    "finalProject": "The final implementation of TaskFlow includes an enhanced Pomodoro timer, a task management system with categorization and due dates, integrated music options via Spotify/SoundCloud, and productivity analytics with real-time tracking. The combination of these features makes TaskFlow a comprehensive productivity tool.",
+    "gains": "Throughout this project, I enhanced my skills in React Native, API integration, UI/UX design, and performance optimization. I also gained experience in handling real-time notifications and data visualization for analytics.",
+    "finalThoughts": "TaskFlow represents my growth as a developer, from understanding user needs to integrating advanced features. It’s a project I’m proud of, and one that has reinforced my ability to create functional and user-friendly applications.",
+    "process": {
+      "research": "The research phase focused on identifying common productivity challenges and exploring effective task management methodologies. I analyzed existing solutions to determine how TaskFlow could provide a unique and improved user experience.",
+      "information": "TaskFlow combines essential productivity features into one platform, integrating task management, focus tools, and analytics to create a seamless workflow for users.",
+      "gains": "The project helped me develop expertise in React Native, API handling, and UI/UX design, while also improving my ability to create efficient and scalable applications."
     }
-  },
+  }
+},
   {
     id: "project-three",
     title: "Project Three",
