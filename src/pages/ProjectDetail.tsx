@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, ChevronRight, ExternalLink } from 'lucide-react';
@@ -8,6 +9,10 @@ import { Navbar } from '@/components/Navbar';
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find(p => p.id === id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!project) {
     return (

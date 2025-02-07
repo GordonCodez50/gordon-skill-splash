@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '@/data/projects';
@@ -7,6 +7,10 @@ import { ExternalLink } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 
 const Projects = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const container = {
     hidden: { opacity: 0 },
     show: {

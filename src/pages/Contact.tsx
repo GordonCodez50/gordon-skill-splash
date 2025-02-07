@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,10 @@ const iconComponents = {
 };
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
