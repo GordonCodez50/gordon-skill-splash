@@ -7,7 +7,6 @@ import { ProjectsCarousel } from "@/components/sections/ProjectsCarousel";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { DividerSection } from "@/components/sections/DividerSection";
 import { QuestionsSection } from "@/components/sections/QuestionsSection";
-import { FooterSection } from "@/components/sections/FooterSection";
 
 const Index = () => {
   useEffect(() => {
@@ -23,7 +22,6 @@ const Index = () => {
       <ProjectsCarousel />
       <TestimonialsSection />
       <QuestionsSection />
-      <FooterSection />
     </main>
   );
 };
