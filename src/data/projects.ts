@@ -3,7 +3,7 @@ import { Project } from "@/types/project";
 export const projects: Project[] = [
   {
     id: "cs50p",
-    title: "Harvard CS50P",
+    title: "Harvard's CS50P",
     description: "A Course from Harvard University on Computer-Science In Python",
     image: "/placeholder.svg",
     headerImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
