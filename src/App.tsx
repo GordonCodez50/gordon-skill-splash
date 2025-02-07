@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
-import { SpeedInsights } from '@vercel/speed-insights/react'; // Import SpeedInsights
+import { SpeedInsights } from '@vercel/speed-insights/react'; // Speed Insights
+import { Analytics } from '@vercel/analytics/react'; // Web Analytics
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,7 +26,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
   <>
     {children}
     <FooterSection />
-    <SpeedInsights /> {/* Add SpeedInsights here to be included in all pages */}
+    <SpeedInsights /> {/* Tracks website performance */}
+    <Analytics /> {/* Tracks website visitor analytics */}
   </>
 );
 
