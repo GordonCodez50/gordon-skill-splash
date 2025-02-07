@@ -47,6 +47,7 @@ export const testimonials: Testimonial[] = [
     image: "/lovable-uploads/mentor1.png",
     testimonial: "Working with Gordon in the Tech Club has been a joy. His leadership skills and technical expertise have greatly contributed to our projects' success.",
     isTeacher: true,
+    recommendationLetter: "/lovable-uploads/recommendation3.png",
     enableHoverEffects: true
   }
 ];
