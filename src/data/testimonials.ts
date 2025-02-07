@@ -39,5 +39,14 @@ export const testimonials: Testimonial[] = [
     testimonial: "Working with Gordon in the Tech Club has been a joy. His leadership skills and technical expertise have greatly contributed to our projects' success.",
     isTeacher: false,
     enableHoverEffects: true
+  },
+  {
+    id: "4",
+    name: "Reji Sir",
+    title: "Head Sir",
+    image: "/lovable-uploads/mentor1.png",
+    testimonial: "Working with Gordon in the Tech Club has been a joy. His leadership skills and technical expertise have greatly contributed to our projects' success.",
+    isTeacher: true,
+    enableHoverEffects: true
   }
 ];
