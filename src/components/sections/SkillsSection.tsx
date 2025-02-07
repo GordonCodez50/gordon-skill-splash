@@ -11,7 +11,13 @@ const skills = [
   "UI/UX Design",
   "Digital Art",
   "Motion Graphics",
-  "Game Development"
+  "Game Development",
+  "TypeScript",
+  "CSS",
+  "Python",
+  "HTML5",
+  "SQL",
+  "ReactJS"
 ];
 
 export const SkillsSection = () => {
