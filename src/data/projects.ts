@@ -9,7 +9,7 @@ export const projects: Project[] = [
     headerImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     tags: ["Education", "Python", "Computer Science"],
     company: "Harvard University",
-    location: "Cambridge, Massachusetts, United States",
+    location: "Cambridge, United States",
     online: true,
     projectLink: "https://cs50.harvard.edu/python/2022/",
     content: {
