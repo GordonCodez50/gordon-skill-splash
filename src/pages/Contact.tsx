@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Twitter, Linkedin, Facebook, Calendar } from 'lucide-react';
 import { contactInfo } from '@/data/contact';
 import { socialLinks } from '@/data/social';
 import { useToast } from '@/hooks/use-toast';
@@ -68,6 +68,14 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="relative h-[40vh] bg-gradient-to-b from-purple-50 to-white">
+        <img
+          src="/lovable-uploads/2c36197a-3862-4fc3-85fb-5bfadd8ddf56.png"
+          alt="Contact Header"
+          className="w-full h-full object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/90" />
+      </div>
       <Navbar />
       <div className="container max-w-7xl mx-auto px-4 py-20">
         <motion.div
@@ -175,6 +183,23 @@ const Contact = () => {
 
               <div className="flex items-start space-x-4">
                 <div className="glass-box p-3">
+                  <Calendar className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="font-medium mb-1">Schedule a Meeting</h3>
+                  <a 
+                    href="https://cal.com/gordon-ge"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-purple-600 transition-colors"
+                  >
+                    Book a time with me
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="glass-box p-3">
                   <MapPin className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
@@ -218,3 +243,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

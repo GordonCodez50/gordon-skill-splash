@@ -35,6 +35,14 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="relative h-[40vh] bg-gradient-to-b from-purple-50 to-white">
+        <img
+          src="/lovable-uploads/2c36197a-3862-4fc3-85fb-5bfadd8ddf56.png"
+          alt="Projects Header"
+          className="w-full h-full object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/90" />
+      </div>
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-20">
         <motion.h1 
@@ -135,3 +143,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
