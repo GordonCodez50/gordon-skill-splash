@@ -31,10 +31,10 @@ export const projects: Project[] = [
   "title": "TaskFlow",
   "description": "An intuitive and powerful task management dashboard designed to help users organize tasks, manage time effectively, and achieve their goals with ease.",
   "image": "/placeholder.svg",
-  "tags": ["Mobile", "React Native"],
+  "tags": ["React Native", "TypeScript", "HTML", "CSS"],
   "company": "Company Two",
   "location": "Location Two",
-  "online": false,
+  "online": True,
   "content": {
     "introduction": "As a passionate learner in the realm of technology, I’m always searching for opportunities to explore and expand my skills. TaskFlow, my latest project, is more than just an app—it’s a reflection of my journey in combining design, functionality, and user experience. From conceptualization to implementation, this project challenged me to push boundaries, integrate advanced tools, and create something impactful.",
     "weekBreakdown": "The initial weeks were focused on setting up the core infrastructure and designing an intuitive user interface. A clean, modern design with a dark theme was prioritized to maintain user focus. As the project evolved, I added robust task management, a dynamic Pomodoro timer, music integration, and analytics features to enhance productivity. Iterative testing and feedback ensured a seamless user experience.",
