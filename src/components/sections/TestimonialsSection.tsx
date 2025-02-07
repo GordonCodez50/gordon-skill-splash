@@ -98,8 +98,8 @@ export const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 left-[-30px] !h-12 !w-12 bg-gradient-to-r from-purple-500 to-purple-600 border-none text-white hover:opacity-90 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-purple-500/25" />
-            <CarouselNext className="absolute top-1/2 -translate-y-1/2 right-[-30px] !h-12 !w-12 bg-gradient-to-r from-green-400 to-green-500 border-none text-white hover:opacity-90 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-green-500/25" />
+            <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 left-[-10px] !h-12 !w-12 bg-gradient-to-r from-purple-500 to-purple-600 border-none text-white hover:opacity-90 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-purple-500/25" />
+            <CarouselNext className="absolute top-1/2 -translate-y-1/2 right-[-10px] !h-12 !w-12 bg-gradient-to-r from-green-400 to-green-500 border-none text-white hover:opacity-90 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-green-500/25" />
           </Carousel>
         </div>
 
